@@ -1,0 +1,195 @@
+.quality-card{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 12px 28px rgba(15,23,42,.08);
+
+    transition:.3s;
+
+}
+
+.quality-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(245,158,11,.15);
+
+}
+
+/* Header */
+
+.quality-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.quality-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.quality-title h3{
+
+    margin:0;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.quality-icon{
+
+    font-size:30px;
+
+    color:#f59e0b;
+
+}
+
+/* Grade Badge */
+
+.grade-badge{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+/* Grid */
+
+.quality-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+/* Metric Box */
+
+.quality-box{
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    transition:.25s;
+
+}
+
+.quality-box:hover{
+
+    background:#ffffff;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.metric-icon{
+
+    color:#f59e0b;
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.quality-box label{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.quality-box span{
+
+    display:block;
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:#111827;
+
+}
+
+/* Sharpness Row */
+
+.full-width{
+
+    grid-column:1 / -1;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .quality-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .quality-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full-width{
+
+        grid-column:auto;
+
+    }
+
+}

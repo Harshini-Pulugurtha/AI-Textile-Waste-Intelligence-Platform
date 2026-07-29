@@ -1,0 +1,209 @@
+.result-card{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 12px 28px rgba(15,23,42,.08);
+
+    transition:.3s;
+
+}
+
+.result-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(22,163,74,.15);
+
+}
+
+/* Header */
+
+.result-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.result-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.result-title h3{
+
+    margin:0;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.result-icon{
+
+    font-size:30px;
+
+}
+
+/* Status Badge */
+
+.status-badge{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+/* Main Result */
+
+.result-body{
+
+    text-align:center;
+
+    margin-bottom:28px;
+
+}
+
+.result-value{
+
+    margin:0;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:#111827;
+
+}
+
+.result-subtitle{
+
+    margin-top:10px;
+
+    color:#64748b;
+
+    font-size:15px;
+
+}
+
+/* Confidence */
+
+.confidence-section{
+
+    margin-top:25px;
+
+}
+
+.confidence-text{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+}
+
+.confidence-text span{
+
+    color:#64748b;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.confidence-text strong{
+
+    color:#16a34a;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+/* Top Border Colors */
+
+.blue{
+
+    border-top:5px solid #2563eb;
+
+}
+
+.green{
+
+    border-top:5px solid #16a34a;
+
+}
+
+.orange{
+
+    border-top:5px solid #f59e0b;
+
+}
+
+.purple{
+
+    border-top:5px solid #7c3aed;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .result-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .result-value{
+
+        font-size:34px;
+
+    }
+
+}
