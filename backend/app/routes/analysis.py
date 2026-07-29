@@ -71,7 +71,10 @@ async def analyze_image(
     recommendation=result["recommendation"],
     material_classification=result["material_classification"],
     waste_classification=result["waste_classification"],
-    recycling_engine=result["recycling_engine"]
+    recycling_engine=result["recycling_engine"],
+    sustainability=result["sustainability"],
+    environmental_analytics=result["environmental_analytics"],
+    analyzed_by=None
 )
 
     # ===============================

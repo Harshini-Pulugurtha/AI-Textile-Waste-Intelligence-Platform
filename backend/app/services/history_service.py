@@ -18,6 +18,8 @@ class HistoryService:
     material_classification: dict,
     waste_classification: dict,
     recycling_engine: dict,
+    sustainability: dict,
+    environmental_analytics: dict,
     analyzed_by: int = None
 ):
         """
@@ -79,6 +81,26 @@ class HistoryService:
             upcycling_suggestions=", ".join(
                 recycling_engine["upcycling_suggestions"]
             ),
+
+            # ==========================
+            # Sustainability Intelligence
+            # ==========================
+
+            sustainability_score=sustainability["score"],
+            environmental_rating=sustainability["environmental_rating"],
+            co2_saved=sustainability["co2_saved"],
+            water_saved=sustainability["water_saved"],
+            landfill_saved=sustainability["landfill_saved"],
+            resource_conservation=sustainability["resource_conservation"],
+
+            # ==========================
+            # Environmental Analytics
+            # ==========================
+
+            carbon_reduction=environmental_analytics["carbon_reduction"],
+            water_conservation=environmental_analytics["water_conservation"],
+            landfill_diversion=environmental_analytics["landfill_diversion"],
+            eco_rating=environmental_analytics["eco_rating"],
 
             analyzed_by=analyzed_by
         )

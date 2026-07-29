@@ -211,6 +211,34 @@ class AnalysisHistory(Base):
 
     upcycling_suggestions = Column(String)
 
+    # ==========================
+    # Sustainability Intelligence
+    # ==========================
+
+    sustainability_score = Column(Float)
+
+    environmental_rating = Column(String)
+
+    co2_saved = Column(Float)
+
+    water_saved = Column(Float)
+
+    landfill_saved = Column(Float)
+
+    resource_conservation = Column(String)
+
+    # ==========================
+    # Environmental Analytics
+    # ==========================
+
+    carbon_reduction = Column(Float)
+
+    water_conservation = Column(Float)
+
+    landfill_diversion = Column(Float)
+
+    eco_rating = Column(Float)
+
     analyzed_by = Column(
         Integer,
         ForeignKey("users.id"),

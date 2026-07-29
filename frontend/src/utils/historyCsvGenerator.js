@@ -19,6 +19,7 @@ export function generateHistoryCSV(item) {
         ["Basic Information", "Quality Score", item.quality_score],
         ["Basic Information", "Recommendation", item.recommended_action],
         ["Basic Information", "Analysis Date", new Date(item.analyzed_at).toLocaleString()],
+        ["", "", ""],
 
         // ==========================
         // Material Classification
@@ -29,6 +30,7 @@ export function generateHistoryCSV(item) {
         ["Material Classification", "Blend Identification", item.blend_identification],
         ["Material Classification", "Fabric Texture", item.fabric_texture],
         ["Material Classification", "Fabric Pattern", item.fabric_pattern],
+        ["", "", ""],
 
         // ==========================
         // Waste Classification
@@ -41,6 +43,8 @@ export function generateHistoryCSV(item) {
         ["Waste Classification", "Disposal Recommendation", item.disposal_recommendation],
         ["Waste Classification", "Compostable", item.compostable],
         ["Waste Classification", "Hazardous Textile", item.hazardous_textile],
+
+        ["", "", ""],
 
         // ==========================
         // Recycling Recommendation
@@ -57,9 +61,29 @@ export function generateHistoryCSV(item) {
         ["Recycling Recommendation", "Environmental Impact", item.environmental_impact],
         ["Recycling Recommendation", "Priority", item.priority],
         ["Recycling Recommendation", "Waste Reduction Strategy", item.waste_reduction_strategy],
-        ["Recycling Recommendation", "Upcycling Suggestions", item.upcycling_suggestions]
+        ["Recycling Recommendation", "Upcycling Suggestions", item.upcycling_suggestions],
+
+        ["", "", ""],
+
+    // Sustainability Intelligence
+    ["Sustainability", "Score", item.sustainability_score],
+    ["Sustainability", "Environmental Rating", item.environmental_rating],
+    ["Sustainability", "CO₂ Saved (kg)", item.co2_saved],
+    ["Sustainability", "Water Saved (L)", item.water_saved?.toLocaleString()],
+    ["Sustainability", "Landfill Saved (kg)", item.landfill_saved],
+    ["Sustainability", "Resource Conservation", item.resource_conservation],
+
+    ["", "", ""],
+
+    // Environmental Analytics
+    ["Environmental Analytics", "Carbon Reduction (kg)", item.carbon_reduction],
+    ["Environmental Analytics", "Water Conservation (L)", item.water_conservation?.toLocaleString()],
+    ["Environmental Analytics", "Landfill Diversion (kg)", item.landfill_diversion],
+    ["Environmental Analytics", "Eco Rating", `${item.eco_rating}/5`],
 
     ];
+
+    
 
     const csvContent = rows
         .map(row =>

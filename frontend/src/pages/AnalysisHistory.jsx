@@ -233,8 +233,62 @@ function AnalysisHistory() {
 
                                 <div><strong>Upcycling Suggestions</strong></div>
                                 <div>{selectedAnalysis.upcycling_suggestions}</div>
+                                
 
                             </div>
+
+                            {/* SUSTAINABILITY */}
+
+                        <div className="detail-section">
+
+                            <h3>🌱 Sustainability Intelligence</h3>
+
+                            <div className="detail-grid">
+
+                                <div><strong>Sustainability Score</strong></div>
+                                <div>{selectedAnalysis.sustainability_score}</div>
+
+                                <div><strong>Environmental Rating</strong></div>
+                                <div>{selectedAnalysis.environmental_rating}</div>
+
+                                <div><strong>CO₂ Saved</strong></div>
+                                <div>{selectedAnalysis.co2_saved} kg</div>
+
+                                <div><strong>Water Saved</strong></div>
+                                <div>{selectedAnalysis.water_saved?.toLocaleString()} L</div>
+
+                                <div><strong>Landfill Saved</strong></div>
+                                <div>{selectedAnalysis.landfill_saved} kg</div>
+
+                                <div><strong>Resource Conservation</strong></div>
+                                <div>{selectedAnalysis.resource_conservation}</div>
+
+                            </div>
+                            {/* ENVIRONMENTAL ANALYTICS */}
+
+                            <div className="detail-section">
+
+                                <h3>🌍 Environmental Analytics</h3>
+
+                                <div className="detail-grid">
+
+                                    <div><strong>Carbon Reduction</strong></div>
+                                    <div>{selectedAnalysis.carbon_reduction} kg</div>
+
+                                    <div><strong>Water Conservation</strong></div>
+                                    <div>{selectedAnalysis.water_conservation?.toLocaleString()} L</div>
+
+                                    <div><strong>Landfill Diversion</strong></div>
+                                    <div>{selectedAnalysis.landfill_diversion} kg</div>
+
+                                    <div><strong>Eco Rating</strong></div>
+                                    <div>{selectedAnalysis.eco_rating}/5</div>
+
+                                </div>
+
+</div>
+
+</div>
 
                         </div>
 
