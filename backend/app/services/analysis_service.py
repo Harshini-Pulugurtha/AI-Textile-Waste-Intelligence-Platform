@@ -4,6 +4,8 @@ from app.services.quality_analysis import QualityAnalyzer
 from app.services.recommendation_service import RecommendationService
 from app.services.sustainability_service import SustainabilityService
 from app.services.environmental_service import EnvironmentalService
+from app.services.waste_scoring_service import WasteScoringService
+from app.services.circular_economy_service import CircularEconomyService
 
 class AnalysisService:
 
@@ -14,6 +16,8 @@ class AnalysisService:
         self.recommendation_service = RecommendationService()
         self.sustainability_service = SustainabilityService()
         self.environmental_service = EnvironmentalService()
+        self.waste_scoring_service = WasteScoringService()
+        self.circular_service = CircularEconomyService()
 
     def analyze(self, image_path):
 
@@ -36,7 +40,20 @@ class AnalysisService:
         environmental = self.environmental_service.generate(
                 sustainability
             )
-        
+
+        waste_scoring = self.waste_scoring_service.calculate(
+                material=material,
+                damage=damage,
+                quality=quality,
+                recommendation=recommendation,
+                sustainability=sustainability
+            )
+        circular_economy = self.circular_service.generate(
+            recommendation=recommendation,
+            sustainability=sustainability,
+            waste_scoring=waste_scoring
+        )
+
         print(recommendation)
         return {
             "material": material,
@@ -44,5 +61,8 @@ class AnalysisService:
             "quality": quality,
             "recommendation": recommendation,
             "sustainability": sustainability,
-            "environmental_analytics": environmental
+            "environmental_analytics": environmental,
+            "waste_scoring": waste_scoring,
+            "circular_economy": circular_economy
+
         }

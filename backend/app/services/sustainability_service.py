@@ -1,88 +1,106 @@
 class SustainabilityService:
+    """
+Environmental Reference Factors
+
+The following values represent approximate environmental
+savings achieved by recovering or reusing 1 kg of textile
+material instead of producing virgin textile.
+
+These estimates are derived from published Life Cycle
+Assessment (LCA) studies and sustainability reports
+(Textile Exchange, Higg MSI, Ecoinvent, IWTO, Water
+Footprint Network and other literature).
+
+The values are intended for educational decision-support
+and sustainability estimation within the Textile Waste
+Intelligence Platform.
+"""
 
     MATERIAL_DATA = {
 
-        "Cotton": {
-            "co2_saved": 3.2,
-            "water_saved": 2700,
-            "landfill_saved": 1.8,
-            "resource_conservation": "High",
-            "score": 92
-        },
+    "Cotton": {
+        "co2_saved": 5.2,
+        "water_saved": 8500,
+        "landfill_saved": 1.0,
+        "resource_conservation": "High",
+        "score": 92
+    },
 
-        "Polyester": {
-            "co2_saved": 2.6,
-            "water_saved": 1200,
-            "landfill_saved": 1.5,
-            "resource_conservation": "Medium",
-            "score": 85
-        },
+    "Polyester": {
+        "co2_saved": 5.4,
+        "water_saved": 95,
+        "landfill_saved": 1.0,
+        "resource_conservation": "Medium",
+        "score": 85
+    },
 
-        "Wool": {
-            "co2_saved": 2.9,
-            "water_saved": 1800,
-            "landfill_saved": 1.7,
-            "resource_conservation": "High",
-            "score": 88
-        },
+    "Polyamide": {
+        "co2_saved": 6.8,
+        "water_saved": 120,
+        "landfill_saved": 1.0,
+        "resource_conservation": "Medium",
+        "score": 87
+    },
 
-        "Silk": {
-            "co2_saved": 2.1,
-            "water_saved": 900,
-            "landfill_saved": 1.3,
-            "resource_conservation": "Medium",
-            "score": 82
-        },
+    "Acrylic": {
+        "co2_saved": 8.3,
+        "water_saved": 180,
+        "landfill_saved": 1.0,
+        "resource_conservation": "Medium",
+        "score": 84
+    },
 
-        "Denim": {
-            "co2_saved": 4.2,
-            "water_saved": 3500,
-            "landfill_saved": 2.2,
-            "resource_conservation": "Very High",
-            "score": 94
-        },
+    "Wool": {
+        "co2_saved": 19.5,
+        "water_saved": 1450,
+        "landfill_saved": 1.0,
+        "resource_conservation": "High",
+        "score": 88
+    },
 
-        "Linen": {
-            "co2_saved": 3.0,
-            "water_saved": 2200,
-            "landfill_saved": 1.9,
-            "resource_conservation": "High",
-            "score": 90
-        },
+    "Silk": {
+        "co2_saved": 155.0,
+        "water_saved": 1100,
+        "landfill_saved": 1.0,
+        "resource_conservation": "Very High",
+        "score": 95
+    },
 
-        "Nylon": {
-            "co2_saved": 2.3,
-            "water_saved": 1000,
-            "landfill_saved": 1.4,
-            "resource_conservation": "Medium",
-            "score": 81
-        },
+    "Denim": {
+        "co2_saved": 6.0,
+        "water_saved": 9200,
+        "landfill_saved": 1.0,
+        "resource_conservation": "High",
+        "score": 94
+    },
 
-        "Rayon": {
-            "co2_saved": 2.8,
-            "water_saved": 1600,
-            "landfill_saved": 1.6,
-            "resource_conservation": "High",
-            "score": 87
-        },
+    "Linen": {
+        "co2_saved": 4.8,
+        "water_saved": 6500,
+        "landfill_saved": 1.0,
+        "resource_conservation": "High",
+        "score": 91
+    },
 
-        "Acrylic": {
-            "co2_saved": 2.4,
-            "water_saved": 1400,
-            "landfill_saved": 1.5,
-            "resource_conservation": "Medium",
-            "score": 84
-        },
+    "Rayon": {
+        "co2_saved": 4.6,
+        "water_saved": 2100,
+        "landfill_saved": 1.0,
+        "resource_conservation": "High",
+        "score": 88
+    },
 
-        "Mixed Fabrics": {
-            "co2_saved": 2.5,
-            "water_saved": 1500,
-            "landfill_saved": 1.6,
-            "resource_conservation": "Medium",
-            "score": 83
-        }
-
+    "Mixed Fabrics": {
+        "co2_saved": 4.0,
+        "water_saved": 1700,
+        "landfill_saved": 1.0,
+        "resource_conservation": "Medium",
+        "score": 80
     }
+
+}
+
+    
 
     def calculate(self, material, recommendation):
 
@@ -104,10 +122,19 @@ class SustainabilityService:
             score += 5
 
         elif action == "Recycle":
-            score += 3
+            score += 4
 
         elif action == "Repair":
-            score += 2
+            score += 3
+
+        elif action == "Donate":
+            score += 4
+
+        elif action == "Upcycle":
+            score += 5
+
+        elif action == "Dispose":
+            score -= 5
 
         if score > 100:
             score = 100
