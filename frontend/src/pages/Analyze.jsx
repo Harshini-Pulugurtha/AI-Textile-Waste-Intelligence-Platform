@@ -16,6 +16,8 @@ import RecyclingCard from "../components/analysis/RecyclingCard";
 import MaterialDetailsCard from "../components/analysis/MaterialDetailsCard";
 import SustainabilityCard from "../components/analysis/SustainabilityCard";
 import EnvironmentalAnalyticsCard from "../components/analysis/EnvironmentalAnalyticsCard";
+import WasteScoringCard from "../components/analysis/WasteScoringCard";
+import CircularEconomyCard from "../components/analysis/CircularEconomyCard";
 
 import { generateCSV } from "../utils/csvGenerator";
 import { generatePDF } from "../utils/pdfGenerator";
@@ -194,20 +196,6 @@ const handlePDFDownload = async () => {
     AI-powered textile waste classification and recycling recommendations, and sustainability analysis.
 </p>
 
-{/* <div className="advanced-grid">
-
-    <WasteClassificationCard
-        waste={result.waste_classification}
-    />
-
-    <RecyclingCard
-        recycle={result.recycling_engine}
-    />
-    <SustainabilityCard
-        sustainability={result.sustainability}
-    />
-
-</div> */}
 <div className="advanced-grid">
 
     <WasteClassificationCard
@@ -225,6 +213,14 @@ const handlePDFDownload = async () => {
 />
 <EnvironmentalAnalyticsCard
     environmental={result.environmental_analytics}
+/>
+
+<WasteScoringCard
+    scoring={result.waste_scoring}
+/>
+
+<CircularEconomyCard
+    data={result.circular_economy}
 />
 
 <ReportButtons
