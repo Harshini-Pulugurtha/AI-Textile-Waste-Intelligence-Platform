@@ -9,23 +9,26 @@ class HistoryService:
         self.db = db
 
     def save_analysis(
-    self,
-    image_name: str,
-    material: dict,
-    damage: dict,
-    quality: dict,
-    recommendation: dict,
-    material_classification: dict,
-    waste_classification: dict,
-    recycling_engine: dict,
-    sustainability: dict,
-    environmental_analytics: dict,
-    analyzed_by: int = None
+        self,
+        image_name: str,
+        material: dict,
+        damage: dict,
+        quality: dict,
+        recommendation: dict,
+        material_classification: dict,
+        waste_classification: dict,
+        recycling_engine: dict,
+        sustainability: dict,
+        environmental_analytics: dict,
+        waste_scoring: dict,
+        circular_economy: dict,
+        analyzed_by: int = None
 ):
         """
         Save AI analysis results into the database.
         """
-
+        print("Saving Waste Scoring:", waste_scoring)
+        print("Saving Circular Economy:", circular_economy) 
         record = AnalysisHistory(
 
             image_name=image_name,
@@ -102,12 +105,42 @@ class HistoryService:
             landfill_diversion=environmental_analytics["landfill_diversion"],
             eco_rating=environmental_analytics["eco_rating"],
 
+            # ==========================
+            # Waste Scoring Engine
+            # ==========================
+
+            recyclability_score=waste_scoring["recyclability_score"],
+            reuse_score=waste_scoring["reuse_score"],
+            material_recovery_score=waste_scoring["material_recovery_score"],
+            processing_feasibility_score=waste_scoring["processing_feasibility_score"],
+            circularity_score=waste_scoring["circularity_score"],
+            circularity_category=waste_scoring["circularity_category"],
+
+            # ==========================
+            # Circular Economy Analytics
+            # ==========================
+
+            recycling_efficiency=circular_economy["recycling_efficiency"],
+            waste_diversion_rate=circular_economy["waste_diversion_rate"],
+            resource_recovery_rate=circular_economy["resource_recovery_rate"],
+            circular_economy_index=circular_economy["circular_economy_index"],
+            circular_rating=circular_economy["rating"],
+
             analyzed_by=analyzed_by
+
         )
 
         self.db.add(record)
         self.db.commit()
         self.db.refresh(record)
+        print("Saved Record ID:", record.id)
+        print("Saved recyclability_score:", record.recyclability_score)
+        print("Saved reuse_score:", record.reuse_score)
+        print("Saved material_recovery_score:", record.material_recovery_score)
+        print("Saved processing_feasibility_score:", record.processing_feasibility_score)
+        print("Saved circularity_score:", record.circularity_score)
+        print("Saved recycling_efficiency:", record.recycling_efficiency)
+        print("Saved circular_rating:", record.circular_rating)
 
         return record
 
@@ -254,3 +287,54 @@ class HistoryService:
             recommendations[action] = recommendations.get(action, 0) + 1
 
         return recommendations
+
+    def get_sustainability_summary(self):
+
+        rows = self.db.query(AnalysisHistory).all()
+
+        if not rows:
+            return {
+                "total_co2_saved": 0,
+                "total_water_saved": 0,
+                "total_landfill_saved": 0,
+                "average_sustainability": 0,
+                "average_circularity": 0,
+                "average_eco_rating": 0
+            }
+
+        total_co2 = sum(r.co2_saved or 0 for r in rows)
+
+        total_water = sum(r.water_saved or 0 for r in rows)
+
+        total_landfill = sum(r.landfill_saved or 0 for r in rows)
+
+        avg_sustainability = sum(
+            r.sustainability_score or 0
+            for r in rows
+        ) / len(rows)
+
+        avg_circularity = sum(
+            r.circularity_score or 0
+            for r in rows
+        ) / len(rows)
+
+        avg_eco = sum(
+            r.eco_rating or 0
+            for r in rows
+        ) / len(rows)
+
+        return {
+
+            "total_co2_saved": round(total_co2, 2),
+
+            "total_water_saved": round(total_water, 2),
+
+            "total_landfill_saved": round(total_landfill, 2),
+
+            "average_sustainability": round(avg_sustainability, 1),
+
+            "average_circularity": round(avg_circularity, 1),
+
+            "average_eco_rating": round(avg_eco, 1)
+
+        }

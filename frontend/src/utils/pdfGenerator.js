@@ -489,6 +489,107 @@ autoTable(doc, {
 //     14,
 //     summaryY + 8
 // );
+    
+/* ===========================
+   Waste Scoring Engine
+=========================== */
+
+let wasteScoreStart = doc.lastAutoTable.finalY + 15;
+
+if (wasteScoreStart > 190) {
+    doc.addPage();
+    wasteScoreStart = 20;
+}
+
+autoTable(doc, {
+    startY: wasteScoreStart,
+
+    head: [["Waste Scoring Engine", "Value"]],
+
+    body: [
+        ["Recyclability Score", `${result.waste_scoring.recyclability_score}%`],
+        ["Reuse Score", `${result.waste_scoring.reuse_score}%`],
+        ["Sustainability Score", `${result.waste_scoring.sustainability_score}%`],
+        ["Material Recovery Score", `${result.waste_scoring.material_recovery_score}%`],
+        ["Processing Feasibility", `${result.waste_scoring.processing_feasibility_score}%`],
+        ["Circularity Score", `${result.waste_scoring.circularity_score}%`],
+        ["Circularity Category", result.waste_scoring.circularity_category]
+    ],
+
+    theme: "grid",
+
+    headStyles: {
+        fillColor: [249,115,22]
+    }
+});
+
+
+/* ===========================
+   Circular Economy Analytics
+=========================== */
+
+let circularStart = doc.lastAutoTable.finalY + 15;
+
+
+if (circularStart > 190) {
+    doc.addPage();
+    circularStart = 20;
+}
+
+autoTable(doc, {
+    startY: circularStart,
+
+    head: [["Circular Economy Analytics", "Value"]],
+
+    body: [
+        ["Recycling Efficiency", `${result.circular_economy.recycling_efficiency}%`],
+        ["Waste Diversion Rate", `${result.circular_economy.waste_diversion_rate}%`],
+        ["Resource Recovery Rate", `${result.circular_economy.resource_recovery_rate}%`],
+        ["Circular Economy Index", result.circular_economy.circular_economy_index],
+        ["Overall Rating", result.circular_economy.rating]
+    ],
+
+    theme: "grid",
+
+    headStyles: {
+        fillColor: [16,185,129]
+    }
+});
+
+/* ===========================
+   Sustainability Benchmark
+=========================== */
+
+let benchmarkStart = doc.lastAutoTable.finalY + 15;
+
+if (benchmarkStart > 190) {
+    doc.addPage();
+    benchmarkStart = 20;
+}
+
+autoTable(doc, {
+    startY: benchmarkStart,
+
+    head: [["Sustainability Benchmark", "Value"]],
+
+    body: [
+        ["Overall Score", `${result.benchmark.overall_score}%`],
+        ["Sustainability Grade", result.benchmark.sustainability_grade],
+        ["ESG Rating", result.benchmark.esg_rating],
+        ["Industry Percentile", `${result.benchmark.industry_percentile}%`],
+        ["Performance", result.benchmark.performance],
+        [
+            "Improvement Suggestions",
+            result.benchmark.improvement_suggestions.join(", ")
+        ]
+    ],
+
+    theme: "grid",
+
+    headStyles: {
+        fillColor: [37,99,235]
+    }
+});
     /* ===========================
    Summary
 =========================== */
@@ -538,6 +639,7 @@ summary.forEach(line => {
 
 // Bottom Divider
 doc.line(14, y, 195, y);
+
     /* ===========================
        Footer
     =========================== */

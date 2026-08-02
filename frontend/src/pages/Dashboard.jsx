@@ -23,8 +23,10 @@ import {
     getDashboardStats,
     getMaterialDistribution,
     getQualityDistribution,
-    getAnalysisHistory
+    getAnalysisHistory,
+    getSustainabilitySummary
 } from "../services/dashboardService";
+import SustainabilityDashboard from "../components/dashboard/SustainabilityDashboard";
 import "./Dashboard.css";
 
 const initialStats = {
@@ -62,6 +64,15 @@ function Dashboard() {
     const [quality,setQuality]=useState({});
     const [history, setHistory] = useState([]);
 
+    const [sustainability, setSustainability] = useState({
+        total_co2_saved: 0,
+        total_water_saved: 0,
+        total_landfill_saved: 0,
+        average_sustainability: 0,
+        average_circularity: 0,
+        average_eco_rating: 0
+    });
+
     
     const today = new Date().toLocaleDateString("en-US", {
         weekday: "long",
@@ -83,6 +94,7 @@ function Dashboard() {
 
                 const qualityResponse = await getQualityDistribution();
                 const historyResponse = await getAnalysisHistory();
+                const sustainabilityResponse = await getSustainabilitySummary();
 
                 if (!isMounted) return;
 
@@ -90,6 +102,7 @@ function Dashboard() {
 
                 setQuality(qualityResponse.data);
                 setHistory(historyResponse.data);
+                setSustainability(sustainabilityResponse.data);
 
                 if (!isMounted) return;
 
@@ -199,6 +212,9 @@ function Dashboard() {
                         />
 
                     </div>
+                    <SustainabilityDashboard
+                        sustainability={sustainability}
+                    />
 
                     <h2 className="section-title">
                             Dashboard Analytics

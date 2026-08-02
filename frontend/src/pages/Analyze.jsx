@@ -18,6 +18,7 @@ import SustainabilityCard from "../components/analysis/SustainabilityCard";
 import EnvironmentalAnalyticsCard from "../components/analysis/EnvironmentalAnalyticsCard";
 import WasteScoringCard from "../components/analysis/WasteScoringCard";
 import CircularEconomyCard from "../components/analysis/CircularEconomyCard";
+import BenchmarkCard from "../components/analysis/BenchmarkCard";
 
 import { generateCSV } from "../utils/csvGenerator";
 import { generatePDF } from "../utils/pdfGenerator";
@@ -221,6 +222,10 @@ const handlePDFDownload = async () => {
 
 <CircularEconomyCard
     data={result.circular_economy}
+/>
+
+<BenchmarkCard
+    benchmark={result.benchmark}
 />
 
 <ReportButtons

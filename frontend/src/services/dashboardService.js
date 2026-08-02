@@ -84,3 +84,7 @@ export const getRecommendationDistribution = () => {
         headers: getAuthHeaders()
     });
 };
+
+export const getSustainabilitySummary = () => {
+    return API.get("/dashboard/sustainability-summary");
+};

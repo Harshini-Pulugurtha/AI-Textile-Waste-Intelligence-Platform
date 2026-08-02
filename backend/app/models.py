@@ -249,3 +249,32 @@ class AnalysisHistory(Base):
         DateTime(timezone=True),
         server_default=func.now()
     )
+    # ==========================
+    # Waste Scoring Engine
+    # ==========================
+
+    recyclability_score = Column(Float)
+
+    reuse_score = Column(Float)
+
+    material_recovery_score = Column(Float)
+
+    processing_feasibility_score = Column(Float)
+
+    circularity_score = Column(Float)
+
+    circularity_category = Column(String)
+
+    # ==========================
+    # Circular Economy Analytics
+    # ==========================
+
+    recycling_efficiency = Column(Float)
+
+    waste_diversion_rate = Column(Float)
+
+    resource_recovery_rate = Column(Float)
+
+    circular_economy_index = Column(Float)
+
+    circular_rating = Column(String)

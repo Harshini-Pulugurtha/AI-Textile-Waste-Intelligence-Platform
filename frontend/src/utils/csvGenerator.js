@@ -94,13 +94,57 @@ export function generateCSV(result) {
         ["Environmental Analytics", "Environmental Impact", result.environmental_analytics.environmental_impact],
         ["Environmental Analytics", "Eco Rating", `${result.environmental_analytics.eco_rating}/5`],
         // ["Environmental Analytics", "Summary", result.environmental_analytics.summary],
+                ["", "", ""],
 
+        // ==========================
+        // Waste Scoring Engine
+        // ==========================
+
+        ["Waste Scoring", "Recyclability Score", `${result.waste_scoring.recyclability_score}%`],
+        ["Waste Scoring", "Reuse Score", `${result.waste_scoring.reuse_score}%`],
+        ["Waste Scoring", "Sustainability Score", `${result.waste_scoring.sustainability_score}%`],
+        ["Waste Scoring", "Material Recovery Score", `${result.waste_scoring.material_recovery_score}%`],
+        ["Waste Scoring", "Processing Feasibility Score", `${result.waste_scoring.processing_feasibility_score}%`],
+        ["Waste Scoring", "Circularity Score", `${result.waste_scoring.circularity_score}%`],
+        ["Waste Scoring", "Circularity Category", result.waste_scoring.circularity_category],
+
+        ["", "", ""],
+
+        // ==========================
+        // Circular Economy Analytics
+        // ==========================
+
+        ["Circular Economy", "Recycling Efficiency", `${result.circular_economy.recycling_efficiency}%`],
+        ["Circular Economy", "Waste Diversion Rate", `${result.circular_economy.waste_diversion_rate}%`],
+        ["Circular Economy", "Resource Recovery Rate", `${result.circular_economy.resource_recovery_rate}%`],
+        ["Circular Economy", "Circular Economy Index", result.circular_economy.circular_economy_index],
+        ["Circular Economy", "Overall Rating", result.circular_economy.rating],
+
+        ["", "", ""],
+
+        // ==========================
+        // Sustainability Benchmark
+        // ==========================
+
+        ["Benchmark", "Overall Score", `${result.benchmark.overall_score}%`],
+        ["Benchmark", "Sustainability Grade", result.benchmark.sustainability_grade],
+        ["Benchmark", "ESG Rating", result.benchmark.esg_rating],
+        ["Benchmark", "Industry Percentile", `${result.benchmark.industry_percentile}%`],
+        ["Benchmark", "Performance", result.benchmark.performance],
+        [
+            "Benchmark",
+            "Improvement Suggestions",
+            result.benchmark.improvement_suggestions.join(" | ")
+        ]
     ];
 
     const csvContent = rows
-        .map(row => row.join(","))
+        .map(row =>
+            row
+                .map(value => `"${String(value ?? "").replace(/"/g, '""')}"`)
+                .join(",")
+        )
         .join("\n");
-
     const blob = new Blob([csvContent], {
         type: "text/csv;charset=utf-8;"
     });

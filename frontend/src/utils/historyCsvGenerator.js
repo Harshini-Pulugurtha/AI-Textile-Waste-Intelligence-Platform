@@ -83,6 +83,45 @@ export function generateHistoryCSV(item) {
 
     ];
 
+        ["", "", ""],
+
+    // ==========================
+    // Waste Scoring Engine
+    // ==========================
+
+    ["Waste Scoring", "Recyclability Score", `${item.recyclability_score}%`],
+    ["Waste Scoring", "Reuse Score", `${item.reuse_score}%`],
+    ["Waste Scoring", "Sustainability Score", `${item.sustainability_score}%`],
+    ["Waste Scoring", "Material Recovery Score", `${item.material_recovery_score}%`],
+    ["Waste Scoring", "Processing Feasibility Score", `${item.processing_feasibility_score}%`],
+    ["Waste Scoring", "Circularity Score", `${item.circularity_score}%`],
+    ["Waste Scoring", "Circularity Category", item.circularity_category],
+
+    ["", "", ""],
+
+    // ==========================
+    // Circular Economy Analytics
+    // ==========================
+
+    ["Circular Economy", "Recycling Efficiency", `${item.recycling_efficiency}%`],
+    ["Circular Economy", "Waste Diversion Rate", `${item.waste_diversion_rate}%`],
+    ["Circular Economy", "Resource Recovery Rate", `${item.resource_recovery_rate}%`],
+    ["Circular Economy", "Circular Economy Index", item.circular_economy_index],
+    ["Circular Economy", "Overall Rating", item.circular_rating],
+
+    ["", "", ""],
+
+    // ==========================
+    // Sustainability Benchmark
+    // ==========================
+
+    ["Benchmark", "Overall Score", `${item.overall_score}%`],
+    ["Benchmark", "Sustainability Grade", item.sustainability_grade],
+    ["Benchmark", "ESG Rating", item.esg_rating],
+    ["Benchmark", "Industry Percentile", `${item.industry_percentile}%`],
+    ["Benchmark", "Performance", item.performance],
+    ["Benchmark", "Improvement Suggestions", item.improvement_suggestions]
+
     
 
     const csvContent = rows

@@ -273,6 +273,127 @@ export function generateHistoryPDF(item) {
     });
 
     /* ===========================
+   Waste Scoring Engine
+=========================== */
+
+let wasteScoreStart = doc.lastAutoTable.finalY + 12;
+
+if (wasteScoreStart > 190) {
+    doc.addPage();
+    wasteScoreStart = 20;
+}
+
+autoTable(doc, {
+
+    startY: wasteScoreStart,
+
+    head: [["Waste Scoring Engine", "Value"]],
+
+    body: [
+
+        ["Recyclability Score", `${item.recyclability_score}%`],
+
+        ["Reuse Score", `${item.reuse_score}%`],
+
+        ["Sustainability Score", `${item.sustainability_score}%`],
+
+        ["Material Recovery Score", `${item.material_recovery_score}%`],
+
+        ["Processing Feasibility", `${item.processing_feasibility_score}%`],
+
+        ["Circularity Score", `${item.circularity_score}%`],
+
+        ["Circularity Category", item.circularity_category]
+
+    ],
+
+    theme: "grid",
+
+    headStyles: {
+        fillColor: [37, 99, 235]
+    }
+
+});
+    /* ===========================
+   Circular Economy Analytics
+=========================== */
+
+let circularStart = doc.lastAutoTable.finalY + 12;
+
+if (circularStart > 190) {
+    doc.addPage();
+    circularStart = 20;
+}
+
+autoTable(doc, {
+
+    startY: circularStart,
+
+    head: [["Circular Economy Analytics", "Value"]],
+
+    body: [
+
+        ["Recycling Efficiency", `${item.recycling_efficiency}%`],
+
+        ["Waste Diversion Rate", `${item.waste_diversion_rate}%`],
+
+        ["Resource Recovery Rate", `${item.resource_recovery_rate}%`],
+
+        ["Circular Economy Index", item.circular_economy_index],
+
+        ["Overall Rating", item.circular_rating]
+
+    ],
+
+    theme: "grid",
+
+    headStyles: {
+        fillColor: [22, 163, 74]
+    }
+
+});
+    /* ===========================
+   Sustainability Benchmark
+=========================== */
+
+let benchmarkStart = doc.lastAutoTable.finalY + 12;
+
+if (benchmarkStart > 190) {
+    doc.addPage();
+    benchmarkStart = 20;
+}
+
+autoTable(doc, {
+
+    startY: benchmarkStart,
+
+    head: [["Sustainability Benchmark", "Value"]],
+
+    body: [
+
+        ["Overall Score", `${item.overall_score}%`],
+
+        ["Sustainability Grade", item.sustainability_grade],
+
+        ["ESG Rating", item.esg_rating],
+
+        ["Industry Percentile", `${item.industry_percentile}%`],
+
+        ["Performance", item.performance],
+
+        ["Improvement Suggestions", item.improvement_suggestions]
+
+    ],
+
+    theme: "grid",
+
+    headStyles: {
+        fillColor: [168, 85, 247]
+    }
+
+});
+
+    /* ===========================
        Footer
     =========================== */
 

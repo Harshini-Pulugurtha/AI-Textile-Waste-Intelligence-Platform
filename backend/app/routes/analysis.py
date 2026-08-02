@@ -63,18 +63,25 @@ async def analyze_image(
 
     history_service = HistoryService(db)
 
+    print("========== DEBUG ==========")
+    print(result["waste_scoring"])
+    print(result["circular_economy"])
+    print("===========================")
+
     history_service.save_analysis(
-    image_name=file.filename,
-    material=result["material"],
-    damage=result["damage"],
-    quality=result["quality"],
-    recommendation=result["recommendation"],
-    material_classification=result["material_classification"],
-    waste_classification=result["waste_classification"],
-    recycling_engine=result["recycling_engine"],
-    sustainability=result["sustainability"],
-    environmental_analytics=result["environmental_analytics"],
-    analyzed_by=None
+        image_name=file.filename,
+        material=result["material"],
+        damage=result["damage"],
+        quality=result["quality"],
+        recommendation=result["recommendation"],
+        material_classification=result["material_classification"],
+        waste_classification=result["waste_classification"],
+        recycling_engine=result["recycling_engine"],
+        sustainability=result["sustainability"],
+        environmental_analytics=result["environmental_analytics"],
+        waste_scoring=result["waste_scoring"],
+        circular_economy=result["circular_economy"],
+        analyzed_by=None
 )
 
     # ===============================

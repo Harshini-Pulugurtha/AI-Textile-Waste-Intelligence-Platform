@@ -6,6 +6,7 @@ from app.services.sustainability_service import SustainabilityService
 from app.services.environmental_service import EnvironmentalService
 from app.services.waste_scoring_service import WasteScoringService
 from app.services.circular_economy_service import CircularEconomyService
+from app.services.benchmark_service import BenchmarkService
 
 class AnalysisService:
 
@@ -18,6 +19,7 @@ class AnalysisService:
         self.environmental_service = EnvironmentalService()
         self.waste_scoring_service = WasteScoringService()
         self.circular_service = CircularEconomyService()
+        self.benchmark_service = BenchmarkService()
 
     def analyze(self, image_path):
 
@@ -53,6 +55,11 @@ class AnalysisService:
             sustainability=sustainability,
             waste_scoring=waste_scoring
         )
+        benchmark = self.benchmark_service.generate(
+            sustainability=sustainability,
+            waste_scoring=waste_scoring,
+            circular_economy=circular_economy
+        )
 
         print(recommendation)
         return {
@@ -63,6 +70,7 @@ class AnalysisService:
             "sustainability": sustainability,
             "environmental_analytics": environmental,
             "waste_scoring": waste_scoring,
-            "circular_economy": circular_economy
+            "circular_economy": circular_economy,
+            "benchmark": benchmark
 
         }
