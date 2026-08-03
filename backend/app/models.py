@@ -278,3 +278,19 @@ class AnalysisHistory(Base):
     circular_economy_index = Column(Float)
 
     circular_rating = Column(String)
+
+    # ==========================
+    # Sustainability Benchmark
+    # ==========================
+
+    overall_score = Column(Float)
+
+    sustainability_grade = Column(String)
+
+    esg_rating = Column(String)
+
+    industry_percentile = Column(Float)
+
+    performance = Column(String)
+
+    improvement_suggestions = Column(String)

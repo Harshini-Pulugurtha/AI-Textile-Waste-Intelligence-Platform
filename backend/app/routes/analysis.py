@@ -81,6 +81,7 @@ async def analyze_image(
         environmental_analytics=result["environmental_analytics"],
         waste_scoring=result["waste_scoring"],
         circular_economy=result["circular_economy"],
+        benchmark=result["benchmark"],
         analyzed_by=None
 )
 

@@ -1,31 +1,3 @@
-// import API from "./api";
-
-// const getAuthHeaders = () => {
-//     const token = localStorage.getItem("token");
-
-//     return {
-//         Authorization: `Bearer ${token}`
-//     };
-// };
-
-// export const analyzeTextile = async (imageFile) => {
-
-//     const formData = new FormData();
-
-//     formData.append("file", imageFile);
-
-//     return API.post(
-//         "/analysis/analyze",
-//         formData,
-//         {
-//             headers: {
-//                 ...getAuthHeaders(),
-//                 "Content-Type": "multipart/form-data"
-//             }
-//         }
-//     );
-
-// };
 import API from "./api";
 
 const getAuthHeaders = () => {

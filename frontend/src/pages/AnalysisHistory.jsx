@@ -286,7 +286,97 @@ function AnalysisHistory() {
 
                                 </div>
 
-</div>
+                            </div>
+
+                            {/* WASTE SCORING */}
+
+                            <div className="detail-section">
+
+                                <h3>📊 Waste Scoring Engine</h3>
+
+                                <div className="detail-grid">
+
+                                    <div><strong>Recyclability Score</strong></div>
+                                    <div>{selectedAnalysis.recyclability_score}%</div>
+
+                                    <div><strong>Reuse Score</strong></div>
+                                    <div>{selectedAnalysis.reuse_score}%</div>
+
+                                    <div><strong>Sustainability Score</strong></div>
+                                    <div>{selectedAnalysis.sustainability_score}%</div>
+
+                                    <div><strong>Material Recovery Score</strong></div>
+                                    <div>{selectedAnalysis.material_recovery_score}%</div>
+
+                                    <div><strong>Processing Feasibility</strong></div>
+                                    <div>{selectedAnalysis.processing_feasibility_score}%</div>
+
+                                    <div><strong>Circularity Score</strong></div>
+                                    <div>{selectedAnalysis.circularity_score}%</div>
+
+                                    <div><strong>Circularity Category</strong></div>
+                                    <div>{selectedAnalysis.circularity_category}</div>
+
+                                </div>
+
+                            </div>
+
+                            {/* CIRCULAR ECONOMY */}
+
+                            <div className="detail-section">
+
+                                <h3>♻ Circular Economy Analytics</h3>
+
+                                <div className="detail-grid">
+
+                                    <div><strong>Recycling Efficiency</strong></div>
+                                    <div>{selectedAnalysis.recycling_efficiency}%</div>
+
+                                    <div><strong>Waste Diversion Rate</strong></div>
+                                    <div>{selectedAnalysis.waste_diversion_rate}%</div>
+
+                                    <div><strong>Resource Recovery Rate</strong></div>
+                                    <div>{selectedAnalysis.resource_recovery_rate}%</div>
+
+                                    <div><strong>Circular Economy Index</strong></div>
+                                    <div>{selectedAnalysis.circular_economy_index}</div>
+
+                                    <div><strong>Overall Rating</strong></div>
+                                    <div>{selectedAnalysis.circular_rating}</div>
+
+                                </div>
+
+                            </div>
+
+                            {/* BENCHMARK */}
+
+                            <div className="detail-section">
+
+                                <h3>🏆 Sustainability Benchmark</h3>
+
+                                <div className="detail-grid">
+
+                                    <div><strong>Overall Score</strong></div>
+                                    <div>{selectedAnalysis.overall_score}%</div>
+
+                                    <div><strong>Sustainability Grade</strong></div>
+                                    <div>{selectedAnalysis.sustainability_grade}</div>
+
+                                    <div><strong>ESG Rating</strong></div>
+                                    <div>{selectedAnalysis.esg_rating}</div>
+
+                                    <div><strong>Industry Percentile</strong></div>
+                                    <div>{selectedAnalysis.industry_percentile}%</div>
+
+                                    <div><strong>Performance</strong></div>
+                                    <div>{selectedAnalysis.performance}</div>
+
+                                    <div><strong>Improvement Suggestions</strong></div>
+                                    <div>{selectedAnalysis.improvement_suggestions}</div>
+
+                                </div>
+
+                            </div>
 
 </div>
 

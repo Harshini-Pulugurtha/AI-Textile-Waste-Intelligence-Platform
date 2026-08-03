@@ -22,6 +22,7 @@ class HistoryService:
         environmental_analytics: dict,
         waste_scoring: dict,
         circular_economy: dict,
+        benchmark: dict,
         analyzed_by: int = None
 ):
         """
@@ -125,6 +126,19 @@ class HistoryService:
             resource_recovery_rate=circular_economy["resource_recovery_rate"],
             circular_economy_index=circular_economy["circular_economy_index"],
             circular_rating=circular_economy["rating"],
+
+            # ==========================
+            # Sustainability Benchmark
+            # ==========================
+
+            overall_score=benchmark["overall_score"],
+            sustainability_grade=benchmark["sustainability_grade"],
+            esg_rating=benchmark["esg_rating"],
+            industry_percentile=benchmark["industry_percentile"],
+            performance=benchmark["performance"],
+            improvement_suggestions=", ".join(
+                benchmark["improvement_suggestions"]
+            ),
 
             analyzed_by=analyzed_by
 
