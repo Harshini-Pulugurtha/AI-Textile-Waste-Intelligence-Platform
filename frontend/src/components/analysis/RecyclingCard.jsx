@@ -1,11 +1,105 @@
+// import "./RecyclingCard.css";
+
+// import {
+//     FaRecycle,
+//     FaIndustry,
+//     FaLeaf,
+//     FaGift,
+//     FaCogs,
+//     FaCheckCircle,
+//     FaLightbulb
+// } from "react-icons/fa";
+
+// function RecyclingCard({ recycle }) {
+
+//     if (!recycle) return null;
+
+//     return (
+
+//         <div className="recycling-card">
+
+//             <h3>
+//                 <FaRecycle />
+//                 Recycling Recommendation Engine
+//             </h3>
+
+//             <div className="recycling-grid">
+
+//                 <div className="recycling-item">
+//                     <span>Recommended Method</span>
+//                     <strong>{recycle.recommended_method}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Fiber Recycling</span>
+//                     <strong>{recycle.fiber_recycling}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Mechanical Recycling</span>
+//                     <strong>{recycle.mechanical_recycling}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Chemical Recycling</span>
+//                     <strong>{recycle.chemical_recycling}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Fabric Reuse</span>
+//                     <strong>{recycle.fabric_reuse}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Industrial Recovery</span>
+//                     <strong>{recycle.industrial_recovery}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Donation</span>
+//                     <strong>{recycle.donation}</strong>
+//                 </div>
+
+//                 <div className="recycling-item">
+//                     <span>Waste Reduction</span>
+//                     <strong>{recycle.waste_reduction_strategy}</strong>
+//                 </div>
+
+//             </div>
+
+//             <div className="upcycling-box">
+
+//                 <h4>
+//                     <FaLightbulb />
+//                     Upcycling Suggestions
+//                 </h4>
+
+//                 <ul>
+
+//                     {recycle.upcycling_suggestions.map((item, index) => (
+
+//                         <li key={index}>
+//                             <FaCheckCircle className="tick-icon" />
+//                             {item}
+//                         </li>
+
+//                     ))}
+
+//                 </ul>
+
+//             </div>
+
+//         </div>
+
+//     );
+
+// }
+
+// export default RecyclingCard;
 import "./RecyclingCard.css";
 
 import {
     FaRecycle,
-    FaIndustry,
-    FaLeaf,
-    FaGift,
-    FaCogs,
     FaCheckCircle,
     FaLightbulb
 } from "react-icons/fa";
@@ -23,12 +117,24 @@ function RecyclingCard({ recycle }) {
                 Recycling Recommendation Engine
             </h3>
 
-            <div className="recycling-grid">
+            {/* Hero Section */}
 
-                <div className="recycling-item">
-                    <span>Recommended Method</span>
-                    <strong>{recycle.recommended_method}</strong>
-                </div>
+            <div className="recycling-hero">
+
+                        <div className="hero-icon">
+                            <FaRecycle />
+                        </div>
+
+                        <div className="hero-content">
+                            <h2>{recycle.recommended_method}</h2>
+                            <p>Recommended Recycling Method</p>
+                        </div>
+
+                    </div>
+
+            {/* Metrics */}
+
+            <div className="recycling-grid">
 
                 <div className="recycling-item">
                     <span>Fiber Recycling</span>
@@ -36,12 +142,12 @@ function RecyclingCard({ recycle }) {
                 </div>
 
                 <div className="recycling-item">
-                    <span>Mechanical Recycling</span>
+                    <span>Mechanical</span>
                     <strong>{recycle.mechanical_recycling}</strong>
                 </div>
 
                 <div className="recycling-item">
-                    <span>Chemical Recycling</span>
+                    <span>Chemical</span>
                     <strong>{recycle.chemical_recycling}</strong>
                 </div>
 
@@ -60,12 +166,19 @@ function RecyclingCard({ recycle }) {
                     <strong>{recycle.donation}</strong>
                 </div>
 
-                <div className="recycling-item">
-                    <span>Waste Reduction</span>
-                    <strong>{recycle.waste_reduction_strategy}</strong>
-                </div>
+            </div>
+
+            {/* Waste Reduction */}
+
+            <div className="strategy-box">
+
+                <h4>Waste Reduction Strategy</h4>
+
+                <p>{recycle.waste_reduction_strategy}</p>
 
             </div>
+
+            {/* Upcycling */}
 
             <div className="upcycling-box">
 
@@ -79,8 +192,11 @@ function RecyclingCard({ recycle }) {
                     {recycle.upcycling_suggestions.map((item, index) => (
 
                         <li key={index}>
+
                             <FaCheckCircle className="tick-icon" />
+
                             {item}
+
                         </li>
 
                     ))}

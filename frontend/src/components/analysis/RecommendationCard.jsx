@@ -1,3 +1,108 @@
+// import {
+//     FaRecycle,
+//     FaLeaf,
+//     FaCoins,
+//     FaExclamationCircle,
+//     FaCheckCircle
+// } from "react-icons/fa";
+
+// import "./RecommendationCard.css";
+
+// function RecommendationCard({ recommendation }) {
+
+//     if (!recommendation) return null;
+
+//     return (
+
+//         <div className="recommendation-card">
+
+//             <div className="recommendation-header">
+
+//                 <div className="recommendation-title">
+
+//                     <FaRecycle className="recommendation-icon" />
+
+//                     <h3>AI Recommendation</h3>
+
+//                 </div>
+
+//             </div>
+
+//             <div className="action-card">
+
+//                 <label>Recommended Action</label>
+
+//                 <h2>{recommendation.recommended_action}</h2>
+
+//             </div>
+
+//             <div className="recommendation-grid">
+
+//                 <div className="info-box">
+
+//                     <FaRecycle className="info-icon blue" />
+
+//                     <label>Recyclability</label>
+
+//                     <p>{recommendation.recyclability}</p>
+
+//                 </div>
+
+//                 <div className="info-box">
+
+//                     <FaLeaf className="info-icon green" />
+
+//                     <label>Environmental Impact</label>
+
+//                     <p>{recommendation.environmental_impact}</p>
+
+//                 </div>
+
+//                 <div className="info-box">
+
+//                     <FaCoins className="info-icon orange" />
+
+//                     <label>Estimated Value</label>
+
+//                     <p>{recommendation.estimated_value}</p>
+
+//                 </div>
+
+//                 <div className="info-box">
+
+//                     <FaExclamationCircle className="info-icon red" />
+
+//                     <label>Priority</label>
+
+//                     <p>{recommendation.priority}</p>
+
+//                 </div>
+
+//             </div>
+
+//             <div className="reason">
+
+//                 <div className="reason-title">
+
+//                     <FaCheckCircle />
+
+//                     <span>Reason</span>
+
+//                 </div>
+
+//                 <p>{recommendation.reason}</p>
+
+//             </div>
+
+//         </div>
+
+//     );
+
+// }
+
+// export default RecommendationCard;
+
+
 import {
     FaRecycle,
     FaLeaf,
@@ -16,81 +121,98 @@ function RecommendationCard({ recommendation }) {
 
         <div className="recommendation-card">
 
-            <div className="recommendation-header">
+            <h3>
+                <FaRecycle />
+                AI Recommendation
+            </h3>
 
-                <div className="recommendation-title">
+            {/* Main Action */}
 
-                    <FaRecycle className="recommendation-icon" />
+            <div className="recommendation-main">
 
-                    <h3>AI Recommendation</h3>
+                <div className="recommendation-circle">
+
+                    <FaRecycle />
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        {recommendation.recommended_action}
+                    </h2>
+
+                    <p>
+                        Recommended AI Action
+                    </p>
 
                 </div>
 
             </div>
 
-            <div className="action-card">
-
-                <label>Recommended Action</label>
-
-                <h2>{recommendation.recommended_action}</h2>
-
-            </div>
+            {/* Metrics */}
 
             <div className="recommendation-grid">
 
                 <div className="info-box">
 
-                    <FaRecycle className="info-icon blue" />
+                    <FaRecycle className="info-icon blue"/>
 
-                    <label>Recyclability</label>
+                    <span>Recyclability</span>
 
-                    <p>{recommendation.recyclability}</p>
-
-                </div>
-
-                <div className="info-box">
-
-                    <FaLeaf className="info-icon green" />
-
-                    <label>Environmental Impact</label>
-
-                    <p>{recommendation.environmental_impact}</p>
+                    <strong>{recommendation.recyclability}</strong>
 
                 </div>
 
                 <div className="info-box">
 
-                    <FaCoins className="info-icon orange" />
+                    <FaLeaf className="info-icon green"/>
 
-                    <label>Estimated Value</label>
+                    <span>Environmental Impact</span>
 
-                    <p>{recommendation.estimated_value}</p>
+                    <strong>{recommendation.environmental_impact}</strong>
 
                 </div>
 
                 <div className="info-box">
 
-                    <FaExclamationCircle className="info-icon red" />
+                    <FaCoins className="info-icon orange"/>
 
-                    <label>Priority</label>
+                    <span>Estimated Value</span>
 
-                    <p>{recommendation.priority}</p>
+                    <strong>{recommendation.estimated_value}</strong>
+
+                </div>
+
+                <div className="info-box">
+
+                    <FaExclamationCircle className="info-icon red"/>
+
+                    <span>Priority</span>
+
+                    <strong>{recommendation.priority}</strong>
 
                 </div>
 
             </div>
 
+            {/* Reason */}
+
             <div className="reason">
 
-                <div className="reason-title">
+                <h4>
 
                     <FaCheckCircle />
 
-                    <span>Reason</span>
+                    Why this recommendation?
 
-                </div>
+                </h4>
 
-                <p>{recommendation.reason}</p>
+                <p>
+
+                    {recommendation.reason}
+
+                </p>
 
             </div>
 

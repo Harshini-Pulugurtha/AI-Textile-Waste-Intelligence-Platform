@@ -44,7 +44,7 @@
 
     background:#ffffff;
 
-    padding:42px;
+    padding:48px;
 
     border-radius:24px;
 
@@ -173,25 +173,30 @@
 
     display:grid;
 
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:1fr;
 
-    gap:28px;
+    gap:30px;
 
-    align-items:start;
+    /* align-items:start; */
+
+    max-width:1100px;
+    margin:0 auto;
 
 }
 
 /* Equal Height */
 
-.material-card,
+/* .material-card,
 .result-card,
 .quality-card,
 .recommendation-card{
 
-    min-height:360px;
-    height:100%;
+    /* min-height:auto;
+    height:auto; */
+    /* min-height:280px;
 
-}
+
+}  */
 
 /* ==========================
    Download Buttons
@@ -353,22 +358,24 @@
 
     display:grid;
 
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:1fr;
 
-    gap:20px;
+    gap:30px;
+/* 
+    align-items:start; */
 
-    align-items:start;
-
-    background:#f8fafc;
+    /* background:#f8fafc; */
 
     padding:30px;
 
     border-radius:20px;
+/* 
+    border:1px solid #e5e7eb; */
 
-    border:1px solid #e5e7eb;
+    max-width:1100px;
+    margin:0 auto;
 
 }
-
 .advanced-grid .waste-card,
 .advanced-grid .recycling-card{
 
